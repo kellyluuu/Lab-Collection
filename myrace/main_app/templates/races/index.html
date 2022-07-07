@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Race List</h1>
+
+{% for race in races %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ race.name }}</span>
+      <p>Year: {{ race.year }}</p>
+      <p>Race Type: {{ race.type }}</p>
+      {% if race.distance > 0 %}
+        <p>Distance: {{ race.distance }}</p>
+        <p>Time: {{ race.time }}</p>
+        <a href={{race.link}}>Link</a>
+      {% else %}
+        <p>Distance: DNA</p>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
+
