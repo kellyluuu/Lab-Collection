@@ -1,0 +1,24 @@
+```html
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Race Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ race.race_name }}</span>
+    <p>Race Year: {{ race.year }}</p>
+    <p>Description: {{ race.race_type }}</p>
+    {% if race.year > 0 %}
+      <p>Race Year: {{ race.year }}</p>
+    {% else %}
+      <p>Race: TBD</p>
+    {% endif %}
+  </div>
+  <div class="card-action">
+    <a href="{% url 'races_update' race.id %}">Edit</a>
+    <a href="{% url 'races_delete' race.id %}">Delete</a>
+  </div>
+</div>
+
+{% endblock %}
