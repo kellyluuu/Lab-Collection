@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Completed List</h1>
+
+{% for completed in completed_list %}
+  <a href="{% url 'completed_detail' completed.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ completed.completed_race }}</span>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}
